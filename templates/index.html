@@ -3,13 +3,35 @@
 {% block content %}
 
 <h1 class='title'>Shakespeare Insult Generator</h1>
+<form method="GET" action="/">
+    <input class="button is-info" type="submit" value="New Insult?">
+</form>
 <div class="pre-con">
     <p>A bit of tetris while we wait...</p>
     <img id="loading-image" src="static/loading.gif" alt="Loading..." />
     
   </div>
+<div style="padding:10px">
 <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/QroOf4W.jpg"/>
+</div>
 
+<div class="field">
+    <a class="button is-info modal-button" data-target="modal-insult">Want to create your own Shakespeare insult?</a>
+</div>
 
-
+    <div id="modal-insult" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content"> 
+                <h1 class="title">What is your Shakespeare Insult?</h1>       
+                  <form method="POST" action="/">
+                      <div class="field">
+                          <div class="control">
+                              <input class="input is-large" type="text" name="insult" placeholder="Churlish Full Gorged Strumpet" autofocus="True">
+                          </div>
+                      </div>
+                      <button class="button is-block is-info is-large is-fullwidth">Submit Insult</button>
+                  </form>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
 {% endblock %}
